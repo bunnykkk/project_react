@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const LikePost = () => {
-  return <div>LikePost</div>;
+  const [like, setLike] = useState(false);
+
+  let style = {
+    float: "right",
+  };
+
+  return (
+    <span style={style} onClick={() => setLike(!like)}>
+      {like ? "❤️" : "🤍"}
+    </span>
+  );
 };
 
 export default LikePost;

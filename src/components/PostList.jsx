@@ -1,10 +1,14 @@
 import React from "react";
+import LikePost from "./LikePost";
 
-const PostList = ({ posts, deletePosts }) => {
-  let style = {
-    border: "2px solid red",
-    width: "200px",
-  };
+let style = {
+  marginTop: "50px",
+  padding: "5px",
+  width: "200px",
+  border: "4px solid black",
+};
+
+const PostList = ({ posts, deletePost, getEditedPost }) => {
   return (
     <div>
       {posts.map(item => {
@@ -12,8 +16,10 @@ const PostList = ({ posts, deletePosts }) => {
           <div style={style} key={item.id}>
             <img src={item.imageUrl} alt="" width="200" height="200" />
             <h2>{item.author}</h2>
-            <h2>{item.body}</h2>
-            <button onClick={() => deletePosts(item.id)}>Delete</button>
+            <p>{item.body}</p>
+            <button onClick={() => deletePost(item.id)}>DELETE</button>
+            <button onClick={() => getEditedPost(item.id)}>EDIT</button>
+            <LikePost />
           </div>
         );
       })}

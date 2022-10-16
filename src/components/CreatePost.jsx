@@ -5,10 +5,8 @@ const CreatePost = ({ addPost }) => {
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
 
-  // console.log(addPost);
-
   function createPost() {
-    if (!imageUrl.trim() || !author.trim() || !body.trim()) {
+    if (!imageUrl || !author || !body) {
       alert("Some inputs are empty!");
       return;
     }
@@ -29,30 +27,28 @@ const CreatePost = ({ addPost }) => {
 
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          placeholder="Enter url image"
-          onChange={e => setImageUrl(e.target.value)}
-          value={imageUrl}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="Enter author name"
-          onChange={e => setAuthor(e.target.value)}
-          value={author}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="Enter body"
-          onChange={e => setBody(e.target.value)}
-          value={body}
-        />
-        <br />
-        <button onClick={createPost}>ADD</button>
-      </div>
+      <input
+        type="text"
+        placeholder="Enter url image"
+        onChange={e => setImageUrl(e.target.value)}
+        value={imageUrl}
+      />
+      <br /> <br />
+      <input
+        type="text"
+        placeholder="Enter author name"
+        onChange={e => setAuthor(e.target.value)}
+        value={author}
+      />
+      <br /> <br />
+      <input
+        type="text"
+        placeholder="Enter body"
+        onChange={e => setBody(e.target.value)}
+        value={body}
+      />
+      <br /> <br />
+      <button onClick={createPost}>ADD</button>
     </div>
   );
 };
